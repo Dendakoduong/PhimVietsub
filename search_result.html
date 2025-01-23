@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phim Vietsub | Tìm kiếm</title>
+  <link rel="shortcut icon" href="https://help.nflxext.com/nficon2023.ico" />
+
+  <meta name="description" content="Vietsub movies and TV shows fast free with no ads" />
+  <meta property="og:description" content="Vietsub movies and TV shows fast free with no ads." />
+  <meta property="og:site_name" content="PhimVietsub" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Free Vietsub Streaming Website" />
+  <meta property="og:url" content="https://vietsub.pages.dev" />
+  <meta property="og:image" content="homepage_seo.png" />
+  <link rel="shortlink" href="https://vietsub.pages.dev" />
+  <link rel="canonical" href="https://vietsub.pages.dev" />
+
+  <!-- Bootstrap CSS (via CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <!-- Custom CSS -->
+  <style>
+    /* Container for the entire results section */
+    #results-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Individual card container */
+    .col-md-4 {
+      display: flex;
+      justify-content: center;
+      width: 320px;
+      margin: 0 1rem;
+    }
+
+    /* Card styling */
+    .card {
+      width: 320px;
+      height: 100%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Poster image size */
+    .card-img-top {
+      width: 320px;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    /* Card content */
+    .card-body {
+      padding: 1.25rem;
+    }
+
+    /* Title truncation */
+    .card-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Add tooltip on hover for full title */
+    .card-title:hover {
+      position: relative;
+    }
+
+    .card-title[title]:hover:after {
+      content: attr(title);
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      white-space: normal;
+      z-index: 1000;
+      width: max-content;
+      max-width: 300px;
+    }
+
+    /* Search results header styling */
+    .search-results-header {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    /* Style for the no results section */
+    .no-results {
+      text-align: center;
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    .no-results-text {
+      font-size: 1.25rem;
+      /* Adjust text size as needed */
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .no-results-image {
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFCCE1;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><i class="fa-brands fa-youtube"></i> Vietsub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="popular.html"><i class="fa-solid fa-fire"></i>
+              Popular</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="help.html"><i class="fa-solid fa-circle-question"></i>
+              Help</a>
+          </li>
+        </ul>
+        <!-- Updated search form for staying on search_result.html -->
+        <form class="d-flex" id="search-form">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query"
+            id="search-input" required value="">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <header class="text-center mt-4">
+    <h1>Search Results</h1>
+    <p id="search-query"></p>
+  </header>
+
+  <div id="results-container" class="container mt-4 row">
+    <!-- Filtered results will be displayed here -->
+  </div>
+
+  <footer id="dynamic-footer"></footer>
+
+  <!-- Bootstrap JS (via CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="search_result.js"></script>
+  <script src="footer.js"></script>
+
+</body>
+
+</html>

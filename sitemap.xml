@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>https://vietsub.pages.dev/index.html</loc>
+    <lastmod>2025-01-23</lastmod>
+    <priority>1.0</priority>
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://vietsub.pages.dev/search_result.html</loc>
+    <lastmod>2025-01-23</lastmod>
+    <priority>0.8</priority>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://vietsub.pages.dev/watch.html</loc>
+    <lastmod>2025-01-23</lastmod>
+    <priority>0.9</priority>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://vietsub.pages.dev/popular.html</loc>
+    <lastmod>2025-01-23</lastmod>
+    <priority>0.7</priority>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://vietsub.pages.dev/help.html</loc>
+    <lastmod>2025-01-23</lastmod>
+    <priority>0.6</priority>
+  </sitemap>
+
+    <sitemap>
+    <loc>https://vietsub.pages.dev/about.html</loc>
+    <lastmod>2025-01-23</lastmod>
+    <priority>0.5</priority>
+  </sitemap>
+
+</sitemapindex>

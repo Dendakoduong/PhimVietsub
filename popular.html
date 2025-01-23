@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popular Movies &amp; TV Shows</title>
+  <link rel="shortcut icon" href="https://help.nflxext.com/nficon2023.ico" />
+
+  <meta name="description" content="Vietsub movies and TV shows fast free with no ads" />
+  <meta property="og:description" content="Vietsub movies and TV shows fast free with no ads." />
+  <meta property="og:site_name" content="PhimVietsub" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Free Vietsub Streaming Website" />
+  <meta property="og:url" content="https://vietsub.pages.dev" />
+  <meta property="og:image" content="homepage_seo.png" />
+  <link rel="shortlink" href="https://vietsub.pages.dev" />
+  <link rel="canonical" href="https://vietsub.pages.dev" />
+
+  <!-- Bootstrap CSS (via CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .table-container {
+      margin: 20px auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .table {
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-bottom: 0;
+    }
+
+    .table thead th {
+      background-color: #f8f9fa;
+      border-bottom: 2px solid #dee2e6;
+      padding: 15px;
+    }
+
+    .table tbody td,
+    .table tbody th {
+      padding: 15px;
+      vertical-align: middle;
+    }
+
+    .poster-cell {
+      width: 100px;
+      text-align: center;
+    }
+
+    .poster-image {
+      max-height: 120px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .overview-cell {
+      max-width: 400px;
+    }
+
+    .title-header {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFCCE1;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><i class="fa-brands fa-youtube"></i> Vietsub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="popular.html"><i class="fa-solid fa-fire"></i>
+              Popular</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html"><i class="fa-solid fa-circle-question"></i>
+              Help</a>
+          </li>
+        </ul>
+        <form class="d-flex" id="search-form" action="search_result.html" method="get">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query"
+            id="search-input" required>
+          <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-container">
+    <div class="d-flex justify-content-between align-items-center title-header">
+      <div>
+        <h1>Popular Movies &amp; TV Shows</h1>
+        <small class="text-muted">
+          <img src="tmdb.png" alt="TMDb Logo" style="width: 40px; height: 20px; margin-right: 5px;">
+          Powered by TMDb
+        </small>
+      </div>
+      <div>
+        <label for="category-select" class="me-2">Select Category:</label>
+        <select id="category-select" class="form-select w-auto">
+          <option value="movie" selected>Movies</option>
+          <option value="tv">TV Shows</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 5%">#</th>
+            <th scope="col" class="poster-cell">Poster</th>
+            <th scope="col" style="width: 20%">Title</th>
+            <th scope="col" style="width: 10%">Release Date</th>
+            <th scope="col" style="width: 10%">Popularity</th>
+            <th scope="col" style="width: 10%">Rating</th>
+            <th scope="col" class="overview-cell">Overview</th>
+          </tr>
+        </thead>
+        <tbody id="content-table">
+          <!-- Content rows will be added here dynamically -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="text-center mt-4 mb-5">
+      <button id="load-more" class="btn btn-primary">Load More</button>
+    </div>
+    <footer id="dynamic-footer"></footer>
+  </div>
+
+  <script>
+    const API_KEY = '8baba8ab6b8bbe247645bcae7df63d0d'; // Replace with your TMDB API key
+    const BASE_URL = 'https://api.themoviedb.org/3/';
+    const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w200';
+
+    let currentCategory = 'movie'; // Default category
+    let currentPage = 1; // Current page for API requests
+    const cache = {}; // Cache object to store fetched data
+
+    // Function to fetch content (Movies or TV Shows)
+    function fetchContent(category, page = 1) {
+      // Check if data for this category and page is already in the cache
+      if (cache[`${category}-page-${page}`]) {
+        appendContentToTable(cache[`${category}-page-${page}`]);
+        return;
+      }
+
+      const endpoint = `${BASE_URL}${category}/popular?api_key=${API_KEY}&page=${page}`;
+      $.ajax({
+        url: endpoint,
+        type: 'GET',
+        success: function (response) {
+          const contentList = response.results;
+          // Cache the data for the category and page
+          cache[`${category}-page-${page}`] = contentList;
+          appendContentToTable(contentList);
+        },
+        error: function (error) {
+          console.error('Error fetching content:', error);
+          alert('Failed to fetch content. Please try again later.');
+        }
+      });
+    }
+
+    // Function to append content to the table
+    function appendContentToTable(contentList) {
+      const tableBody = $('#content-table');
+      const currentIndex = tableBody.children().length; // Get the current row count
+
+      // Add rows to the table
+      contentList.forEach((item, index) => {
+        const row = `
+          <tr>
+            <th scope="row">${currentIndex + index + 1}</th>
+            <td>
+              <img src="${IMAGE_BASE_URL}${item.poster_path}" 
+                   alt="${item.title || item.name} Poster" 
+                   class="img-fluid rounded" style="max-height: 100px;">
+            </td>
+            <td>${item.title || item.name}</td>
+            <td>${item.release_date || item.first_air_date}</td>
+            <td>${item.popularity}</td>
+            <td>${item.vote_average} / 10</td>
+            <td>${item.overview}</td>
+          </tr>
+        `;
+        tableBody.append(row);
+      });
+    }
+
+    // Event listener for category change
+    $(document).ready(function () {
+      const categorySelect = $('#category-select');
+      const loadMoreButton = $('#load-more');
+
+      // Initial fetch for Movies
+      fetchContent(currentCategory, currentPage);
+
+      // Fetch content based on selected category
+      categorySelect.change(function () {
+        currentCategory = categorySelect.val();
+        currentPage = 1; // Reset to first page
+        $('#content-table').empty(); // Clear table
+        fetchContent(currentCategory, currentPage);
+      });
+
+      // Load more button event
+      loadMoreButton.click(function () {
+        currentPage += 1; // Increment page number
+        fetchContent(currentCategory, currentPage);
+      });
+    });
+  </script>
+  <script src="footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

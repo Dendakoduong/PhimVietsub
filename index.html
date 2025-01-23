@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phim Vietsub | Trang chủ</title>
+  <link rel="shortcut icon" href="https://help.nflxext.com/nficon2023.ico" />
+
+  <meta name="description" content="Vietsub movies and TV shows fast free with no ads" />
+  <meta property="og:description" content="Vietsub movies and TV shows fast free with no ads." />
+  <meta property="og:site_name" content="PhimVietsub" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Free Vietsub Streaming Website" />
+  <meta property="og:url" content="https://vietsub.pages.dev" />
+  <meta property="og:image" content="homepage_seo.png" />
+  <link rel="shortlink" href="https://vietsub.pages.dev" />
+  <link rel="canonical" href="https://vietsub.pages.dev" />
+
+  <!-- Bootstrap CSS (via CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .card-img-top {
+      max-height: 300px;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .card-body {
+      text-align: left;
+    }
+
+    /* Style for the "Next" button with solid background color */
+    .pagination .next-button {
+      background-color: #007bff;
+      /* Set to the desired background color */
+      color: white;
+      border: none;
+      /* Remove border to avoid outline */
+    }
+
+    .pagination .next-button:hover {
+      background-color: #0056b3;
+      /* Darker shade on hover */
+    }
+
+    /* Style for the "Previous" button with outline */
+    .pagination .previous-button {
+      border: 1px solid #ccc;
+      /* Outline for Previous button */
+      color: #007bff;
+      /* Blue color for text */
+      background-color: white;
+      /* White background */
+    }
+
+    .pagination .previous-button:hover {
+      background-color: #f1f1f1;
+      /* Lighter background on hover */
+    }
+
+    .bordered-text {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      /* Text color */
+      text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+      /* Create the border effect around the text */
+    }
+
+    h3.bordered-text {
+      font-size: 2.5rem;
+      /* Larger font size for the h3 */
+      color: #fff;
+      /* White text for h3 */
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFCCE1;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><i class="fa-brands fa-youtube"></i> Vietsub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="popular.html"><i class="fa-solid fa-fire"></i>
+              Popular</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="help.html"><i class="fa-solid fa-circle-question"></i>
+              Help</a>
+          </li>
+        </ul>
+        <form class="d-flex" id="search-form" action="search_result.html" method="get">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query"
+            id="search-input" required>
+          <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!--Carousel-->
+  <!-- Carousel -->
+  <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="test4.jpg" alt="Los Angeles" class="d-block" style="width: 100%; height: 600px;">
+        <div class="carousel-caption">
+          <h3 class="text-warning bordered-text">The Simpsons</h3>
+          <p class="bordered-text">The Simpsons follows Homer, a nuclear plant worker, and his quirky family in
+            Springfield.
+            His wife Marge, kids Bart, Lisa, and Maggie, along with colorful neighbors like Ned Flanders and Moe, make
+            for comedic adventures.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="test1.jpg" alt="Chicago" class="d-block" style="width:100%; height: 600px;">
+        <div class="carousel-caption">
+          <h3 class="text-primary bordered-text">Family Guy</h3>
+          <p class="bordered-text">Family Guy follows the Griffin family in Quahog, R.I. Peter and Lois raise their kids
+            Meg, Chris, and
+            genius baby Stewie, while their talking dog Brian navigates life and keeps Stewie in check.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="test3.jpg" alt="New York" class="d-block" style="width:100%; height: 600px;">
+        <div class="carousel-caption">
+          <h3 class="bordered-text">Regular Show</h3>
+          <p class="bordered-text">Follows best buds Mordecai and Rigby, a bluejay and a racoon, and their
+            misadventures. Employed as
+            groundskeepers, their daily lives are anything but regular.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+
+  <div class="container mt-5">
+    <header class="text-center mb-4">
+      <h1>Suggestions for you</h1>
+      <p class="lead">Select something to watch</p>
+    </header>
+
+    <div class="row" id="episodes-container">
+      <!-- Cards will be displayed here -->
+    </div>
+
+    <nav class="mt-4">
+      <ul class="pagination justify-content-center" id="pagination">
+        <!-- Pagination buttons will be added here -->
+      </ul>
+    </nav>
+
+    <footer id="dynamic-footer"></footer>
+  </div>
+
+  <!-- Bootstrap JS (via CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="card.js"></script>
+  <script src="footer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+.card-body {
+  text-align: left;
+}
+/* Circular Progress Bar */
+.circular-score {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.progress-circle {
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #ddd;
+  stroke-width: 2.5;
+}
+
+.circle {
+  fill: none;
+  stroke: #20c997; /* Green color */
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.5s ease;
+}
+
+.score-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.user-score-label {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.circular-score-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  text-align: center;
+}
+
+/* Dark Mode */
